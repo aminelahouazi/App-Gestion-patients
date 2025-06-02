@@ -1,0 +1,550 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webmedical</title>
+</head>
+<style>
+  html{
+    height: 100dvh;
+    
+    overflow-y: hidden;
+     font-family: "Ubuntu Mono", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;   
+  }
+    @font-face {
+        font-family: myfont;
+        src: url(res/LobsterTwo-BoldItalic.ttf);
+    }
+    a{
+    text-decoration:none;
+  }
+    header{
+        font-weight: bold;
+        /*background-color:rgb(8, 15, 81);*/
+        height:60px;
+        width: 100%;
+        position:fixed;
+        background-color:rgb(221, 239, 245);
+        color:rgb(8, 15, 81);
+        font-size:large;
+        padding-right:3px;
+        padding-top:8px;
+        display: flex; /* Utilisation de flexbox */
+        justify-content: flex-end; /* Aligne tous les éléments à droite */
+        align-items: center; 
+        margin-top:none;
+        border:1px solid rgb(191, 58, 107);
+        margin-left:0;
+        float:left;
+    }
+    .logo{
+        display: flex;
+        align-items:center;
+        float:left;
+        position: fixed;
+        left: 0;
+        top:-5px;
+    }
+    .nom{
+        font-size:30px;
+        display:flex;
+        gap:5px;
+        font-family: myfont;
+        color:rgb(76, 163, 210);
+    }
+    .div4{
+        font-size:40px;
+        display:flex;
+        gap:5px;
+    }
+    .W{
+        color:rgb(191, 58, 107);
+        font-size:35px;
+    }
+    .WW{
+        color:rgb(191, 58, 107);
+        font-size:45px;
+    }
+    .M{
+        color:rgb(191, 58, 107);
+        font-size:35px;
+    }
+    .MM{
+        color:rgb(191, 58, 107);
+        font-size :45px;
+    }
+    .logopic{
+        width: 90px;
+    }
+    .div3{
+        display: flex;
+    }
+    .div4{
+        font-family: myfont;
+        display:flex;
+        gap:5px;
+        color: rgb(76, 163, 210);
+        margin-left:130px;
+    }
+    body{
+        margin:0;
+        background-color:rgb(224, 237, 244);
+        /*background: radial-gradient(circle, rgb(193, 232, 254) 0%, rgb(244, 218, 229) 38%, rgb(204, 237, 251) 98%);*/
+    }
+    .globe{
+        display: flex;
+        gap:1185px;
+    }
+    .principal{
+        display: flex;
+        text-align:right;
+        align-items:center;
+        float:right;
+    }
+    .buttons {
+        display: inline-flex; 
+        position: absolute;right: 0;
+        margin-right:2px;
+    }
+    .ext {
+    display: inline-flex;
+    align-items: center;
+    border: 0px solid;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: width 0.3s ease, border-radius 0.3s ease;
+    width: 50px;
+    float:right;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: rgb(221, 239, 245);
+ 
+}
+
+.ext svg {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    margin-right: 2px;
+    background-color: rgb(221, 239, 245);
+
+}
+
+.ext span {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:rgb(76, 163, 210);
+    font-size:18px;
+
+}
+
+.ext:hover {
+    width: 160px; /* Adjust width to fit your text */
+    background-color: rgb(221, 239, 245);
+    border-radius: 20px;
+    height:30px;
+}
+
+.ext:hover span {
+    opacity: 1;
+}
+
+
+
+
+.cards {
+    margin-top:40px;
+  display: block;
+  flex-direction:row;
+  gap: 15px;
+  margin-top:8px;
+  margin-bottom:50px;
+}
+.cards:hover{
+
+}
+
+.cards .red {
+    /*background-color:rgb(242, 128, 172);*/
+    background-color:rgb(233, 78, 137);
+}
+.cards .red:hover{
+    background-color:rgb(231, 31, 108);
+}
+
+.cards .blue {
+  background-color:rgb(104, 193, 218);
+}
+.cards .blue:hover {
+  background-color:rgb(34, 168, 206);
+}
+.cards .green {
+    background-color:rgb(233, 78, 137);
+}
+.cards .green:hover{
+    background-color:rgb(231, 31, 108);
+}
+.cards .yellow {
+    /*background-color:rgb(156, 189, 242);*/
+    background-color:rgb(104, 193, 218);
+}
+.cards .yellow:hover{
+    background-color:rgb(34, 168, 206);
+}
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 150px;
+  width: 250px;
+  border-radius: 10px;
+  color: white;
+  transition: 400ms;
+}
+
+.cards .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
+  /*color:rgb(8, 15, 81);*/
+  color:white;
+  font-size:20px;
+}
+
+.cards .card p.second-text {
+  font-size: .7em;
+}
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+  
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+.first{
+    display: flex;
+    gap:40px;
+    margin-top:50px;
+}
+.second{
+    display: flex;
+    gap:40px;
+    margin-top:30px;
+}
+
+/* From Uiverse.io by joe-watson-sbf */ 
+/*.container {
+  color: white;
+  position: relative;
+  font-family: sans-serif;
+}
+
+.container::before,
+.container::after {
+  content: "";
+  background-color:rgba(212, 138, 63, 0.73);
+  position: absolute;
+}
+
+.container::before {
+  border-radius: 50%;
+  width: 6rem;
+  height: 6rem;
+  top: 30%;
+  right: 7%;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  height: 3rem;
+  top: 8%;
+  right: 5%;
+  border: 1px solid;
+}
+
+.container .box {
+  width: 11.875em;
+  height: 15.875em;
+  padding: 1rem;
+  background-color: rgba(42, 29, 33, 0.87);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 0.7rem;
+  transition: all ease 0.3s;
+}
+
+.container .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container .box .title {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.container .box div strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.container .box div p {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.container .box div span {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.container .box div span:nth-child(3) {
+  font-weight: 500;
+  margin-right: 0.2rem;
+}
+
+.container .box:hover {
+  box-shadow: 0px 0px 20px 1px #ffbb763f;
+  border: 1px solid rgba(255, 255, 255, 0.454);
+}*/
+
+
+/*.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cards .red {
+  background-color: #3b82f6;
+}
+
+.cards .blue {
+  background-color:rgb(76, 92, 210);
+  /*background-color:rgb(106, 160, 247);
+  
+}
+
+.cards .green {
+  /*background-color:rgb(76, 163, 210);
+  background-color:rgb(106, 160, 247);
+}
+.cards .yellow {
+  background-color:rgb(109, 196, 243);
+}
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 80px;
+  width: 500px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.cards .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
+}
+.tip{
+    color: white;
+    font-size:35px;
+}
+
+.cards .card p.second-text {
+  font-size: .7em;
+}
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(1px);
+  transform: scale(0.9, 0.9);
+}*/
+
+
+
+
+
+
+
+
+
+.principal2{
+        width: 100%;
+        display:flex;
+        
+    }
+    .div1{
+        width:900px;
+        
+    }
+    .div2{
+        text-align:left;
+        margin-top:100px;
+    }
+    h1{
+        margin-top:30px;
+        text-align:left;
+        color: rgb(8, 15, 81);
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        font-size:35px;
+    }
+    h2{
+        color: rgb(8, 15, 81);
+    }
+    h3{
+    text-align:center;
+    margin: top 1px;
+    font-size:30px;
+    color:rgb(8, 15, 81);
+}
+    
+/*h1{
+    text-align:center;
+    margin-top:90px;
+    font-size:60px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    color:rgb(191, 58, 107);
+}
+h3{
+    text-align:center;
+    color:rgb(8, 15, 81);
+    margin-top:80px;
+}
+.all{
+    margin-top:20px;
+    display: flex;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    font-size:40px;
+    width:100%;
+}
+
+
+.photo img{
+    width:100%;
+    height:400px;
+    opacity: 0.8;
+}
+.photo {
+    width:60%;
+}*/
+</style>
+<body>
+    <header>
+    <div class="globe">
+    <div class="logo">
+        <div>
+            <img src="img/logo.png" class="logopic">
+        </div>
+        <div class="nom">
+            <div class="div3"><div class="W">W</div>eb</div>  
+            <div class="div3"><div class="M">M</div>edical</div>
+        </div>
+    </div>
+    <div class="principal">
+      <section class="buttons">
+        <button class ="ext" id="logout">
+          <!--<svg xmlns="http://www.w3.org/2000/svg" height="100px" viewBox="0 -960 960 960" width="100px" fill="#000000"><path d="M480-120v-80h280v-560H480v-80h280q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H480Zm-80-160-55-58 102-102H120v-80h327L345-622l55-58 200 200-200 200Z"/></svg> -->
+          <a href="authentification.php">
+          <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="rgb(191, 58, 107)"><path d="M120-160v-94q0-38 19-65t49-41q67-30 128.5-45T440-420q26 0 50.5 2.5T541-410q-5 58 21.5 109.5T640-220v60H120ZM760-13l-60-60v-186q-44-13-72-49.5T600-393q0-58 41-99t99-41q58 0 99 41t41 99q0 45-25.5 80T790-263l50 50-60 60 60 60-80 80ZM440-500q-63 0-106.5-43.5T290-650q0-63 43.5-106.5T440-800q63 0 106.5 43.5T590-650q0 63-43.5 106.5T440-500Zm300 127q17 0 28.5-11.5T780-413q0-17-11.5-28.5T740-453q-17 0-28.5 11.5T700-413q0 17 11.5 28.5T740-373Z"/></svg>
+          </a>
+          <a href="authentification.php">
+          <span>Se Connecter</span>
+          </a>
+        </button>
+      </section>
+      <div class="heur">
+        <?php
+            //echo date("d/m/y H:i:s");
+        ?> 
+      </div>
+    </div>
+  </div>
+    </header><br>
+    <div class="principal2">
+        <div class="div1">
+            <img src="img/fond.png" alt="" >
+        </div>
+        <div class="div2">
+            <p>
+                <h1>Bienvenue dans votre espace de travail</h1>
+                <h3>
+                <div class="div4">
+            <div class="div3"><div class="WW">W</div>eb</div>  
+            <div class="div3"><div class="MM">M</div>edical</div>
+        </div>
+                </h3>
+            </p>
+            <div class="cards">
+                <h3>notre application web vous permet de :</h3>
+                <div class="first">
+                    <div class="card red">
+                        <p class="tip">- Gérer facilement vos patients</p>
+                    </div>
+                     <div class="card blue">
+                        <p class="tip"> - Documenter les visites des patients</p>
+                    </div>
+                </div>
+                <div class="second">
+                    <div class="card green">
+                        <p class="tip"> - Gagner du temps en eliminant les taches chronophages</p>
+                    </div>
+                    <div class="card yellow">
+                         <p class="tip"> - Eviter la perte des documents et les informations des patients</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--<h1>Bienvenu dans votre espace de travail</h1>-->
+    <!--<div class="all">
+        <div class="photo">
+            <img src="fond.png" alt="" >
+        </div>
+            <h3>notre site web vous permet de :</h3>
+        <div class="cards">
+            <div class="first">
+                <div class="card red">
+        <p class="tip">- Gérer facilement vos patient</p>
+    </div>
+    <div class="card blue">
+        <p class="tip"> - Documenter leurs vistites</p>
+    </div>
+            </div>
+                <div class="second">
+                    <div class="card green">
+        <p class="tip"> - Gagner du temps en eliminant les taches chronophages</p>
+    </div>
+    <div class="card yellow">
+        <p class="tip"> - Eviter la pert des documents et les informations des patients</p>
+        
+    </div>
+                </div>
+</div>
+    </div>   -->
+    
+</body>
+</html>
